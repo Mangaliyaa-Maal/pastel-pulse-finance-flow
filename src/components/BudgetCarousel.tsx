@@ -53,8 +53,7 @@ const BudgetCarousel: React.FC<BudgetCarouselProps> = ({ budgets }) => {
               
               <Progress
                 value={(budget.spent / budget.limit) * 100}
-                className="h-2 mb-3"
-                indicatorClassName="bg-white bg-opacity-90"
+                className="h-2 mb-3 bg-black/10"
               />
               
               <div className="mt-auto text-xs opacity-60 flex items-center">

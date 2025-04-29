@@ -31,7 +31,7 @@ const SpendingChart: React.FC<SpendingChartProps> = ({ data }) => {
             cx="50%"
             cy="50%"
             innerRadius="60%"
-            outerRadius={({ index }) => (activeIndex === index ? "80%" : "70%")}
+            outerRadius="70%"
             dataKey="value"
             stroke="none"
             onMouseEnter={handleMouseEnter}
@@ -39,6 +39,11 @@ const SpendingChart: React.FC<SpendingChartProps> = ({ data }) => {
             animationBegin={100}
             animationDuration={800}
             animationEasing="ease-out"
+            activeIndex={activeIndex}
+            activeShape={(props) => {
+              const outerRadius = 80;
+              return {...props, outerRadius};
+            }}
           >
             {data.map((entry, index) => (
               <Cell key={`cell-${index}`} fill={entry.color} />
