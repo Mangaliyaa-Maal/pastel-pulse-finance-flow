@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -61,6 +62,23 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
+				},
+				// Custom pastel colors for our expense tracker
+				pastel: {
+					mint: '#F2FCE2',
+					lavender: '#E5DEFF',
+					peach: '#FDE1D3',
+					blue: '#D3E4FD',
+					yellow: '#FEF7CD',
+					pink: '#FFDEE2',
+				},
+				expense: {
+					food: '#FEC6A1',
+					transport: '#D3E4FD',
+					shopping: '#FFDEE2',
+					entertainment: '#E5DEFF',
+					health: '#F2FCE2',
+					other: '#F1F0FB',
 				}
 			},
 			borderRadius: {
@@ -84,11 +102,51 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				'fade-in': {
+					'0%': { opacity: '0', transform: 'translateY(10px)' },
+					'100%': { opacity: '1', transform: 'translateY(0)' }
+				},
+				'scale-in': {
+					'0%': { transform: 'scale(0.95)', opacity: '0' },
+					'100%': { transform: 'scale(1)', opacity: '1' }
+				},
+				'slide-in-right': {
+					'0%': { transform: 'translateX(100%)' },
+					'100%': { transform: 'translateX(0)' }
+				},
+				'slide-out-right': {
+					'0%': { transform: 'translateX(0)' },
+					'100%': { transform: 'translateX(100%)' }
+				},
+				'bounce': {
+					'0%, 100%': { transform: 'translateY(0)' },
+					'50%': { transform: 'translateY(-10px)' }
+				},
+				'ripple': {
+					'0%': { transform: 'scale(0)', opacity: '1' },
+					'100%': { transform: 'scale(2.5)', opacity: '0' }
+				},
+				'flip': {
+					'0%': { transform: 'rotateY(0deg)' },
+					'100%': { transform: 'rotateY(180deg)' }
+				},
+				'flip-back': {
+					'0%': { transform: 'rotateY(180deg)' },
+					'100%': { transform: 'rotateY(0deg)' }
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'fade-in': 'fade-in 0.3s ease-out',
+				'scale-in': 'scale-in 0.2s ease-out',
+				'slide-in-right': 'slide-in-right 0.3s ease-out',
+				'slide-out-right': 'slide-out-right 0.3s ease-out',
+				'bounce': 'bounce 0.5s ease-in-out',
+				'ripple': 'ripple 0.6s linear',
+				'flip': 'flip 0.6s ease-in-out forwards',
+				'flip-back': 'flip-back 0.6s ease-in-out forwards'
 			}
 		}
 	},
