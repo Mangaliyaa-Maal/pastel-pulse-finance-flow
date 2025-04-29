@@ -59,10 +59,10 @@ const TransactionList: React.FC<TransactionListProps> = ({
 
   return (
     <div className="space-y-1 mt-6">
-      <h2 className="text-lg font-bold px-2 mb-4">Recent Transactions</h2>
+      <h2 className="text-lg font-bold px-2 mb-4 text-royal-darkPurple">Recent Transactions</h2>
       
       {transactions.length === 0 ? (
-        <div className="flex flex-col items-center justify-center p-10 text-gray-400">
+        <div className="flex flex-col items-center justify-center p-10 text-gray-400 royal-card">
           <div className="text-3xl mb-2">📭</div>
           <p>No transactions yet</p>
         </div>
@@ -70,7 +70,7 @@ const TransactionList: React.FC<TransactionListProps> = ({
         transactions.map((transaction) => (
           <div key={transaction.id} className="relative overflow-hidden">
             <div
-              className={`transaction-item ${
+              className={`transaction-item royal-card ${
                 activeSwipe === transaction.id ? "-translate-x-16" : ""
               }`}
               onTouchStart={() => handleSwipeStart(transaction.id)}

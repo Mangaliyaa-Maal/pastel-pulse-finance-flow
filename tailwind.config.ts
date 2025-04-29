@@ -79,6 +79,15 @@ export default {
 					entertainment: '#E5DEFF',
 					health: '#F2FCE2',
 					other: '#F1F0FB',
+				},
+				// Royal color scheme
+				royal: {
+					purple: '#9b87f5',
+					darkPurple: '#6E59A5',
+					lightPurple: '#D6BCFA',
+					gold: '#FFD700',
+					navy: '#1A1F2C',
+					accent: '#8B5CF6',
 				}
 			},
 			borderRadius: {

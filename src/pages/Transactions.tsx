@@ -1,31 +1,31 @@
 
 import React, { useState } from "react";
 import Layout from "@/components/Layout";
-import SpendingChart from "@/components/SpendingChart";
 import TransactionList from "@/components/TransactionList";
-import BudgetCarousel from "@/components/BudgetCarousel";
 import AddTransactionForm from "@/components/AddTransactionForm";
-import BalanceSummary from "@/components/BalanceSummary";
-import { mockTransactions, mockBudgets, mockChartData, getIncome, getExpenses, getBalance } from "@/data/mockData";
+import { mockTransactions } from "@/data/mockData";
 import { useToast } from "@/components/ui/use-toast";
 
-const Index = () => {
+interface Transaction {
+  id: string;
+  title: string;
+  amount: number;
+  date: string;
+  category: string;
+}
+
+const Transactions = () => {
   const [transactions, setTransactions] = useState(mockTransactions);
   const { toast } = useToast();
-  
-  const handleAddTransaction = (newTransaction: {
-    title: string;
-    amount: number;
-    category: string;
-    date: string;
-  }) => {
+
+  const handleAddTransaction = (newTransaction: Omit<Transaction, "id">) => {
     const transaction = {
       ...newTransaction,
       id: `tx-${Date.now()}`,
     };
     setTransactions([transaction, ...transactions]);
   };
-  
+
   const handleDeleteTransaction = (id: string) => {
     setTransactions(transactions.filter((tx) => tx.id !== id));
     toast({
@@ -38,21 +38,11 @@ const Index = () => {
   return (
     <Layout>
       <div className="p-5 space-y-6">
-        <h2 className="text-2xl font-bold mb-4 text-royal-darkPurple">Dashboard</h2>
+        <h2 className="text-2xl font-bold mb-4 text-royal-darkPurple">Transactions</h2>
         
-        <BalanceSummary 
-          income={getIncome()} 
-          expenses={getExpenses()} 
-          balance={getBalance()} 
-        />
-        
-        <SpendingChart data={mockChartData} />
-        
-        <BudgetCarousel budgets={mockBudgets} />
-        
-        <TransactionList 
-          transactions={transactions.slice(0, 3)} 
-          onDelete={handleDeleteTransaction} 
+        <TransactionList
+          transactions={transactions}
+          onDelete={handleDeleteTransaction}
         />
         
         <AddTransactionForm onAddTransaction={handleAddTransaction} />
@@ -61,4 +51,4 @@ const Index = () => {
   );
 };
 
-export default Index;
+export default Transactions;
