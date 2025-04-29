@@ -1,7 +1,7 @@
 
 import React from "react";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Home, Wallet, Settings } from "lucide-react";
+import { Home, Wallet, Settings, ChartBar } from "lucide-react";
 import { useNavigate, useLocation } from "react-router-dom";
 
 interface LayoutProps {
@@ -25,6 +25,9 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
     <div className="flex flex-col min-h-[100dvh] bg-background">
       <header className="py-4 px-5 flex items-center justify-between bg-royal-purple text-white">
         <h1 className="text-xl font-bold">Pulse Finance</h1>
+        <div className="flex items-center space-x-2">
+          <span className="text-xs bg-white/20 px-2 py-1 rounded-full">Premium</span>
+        </div>
       </header>
       
       <main className="flex-1 container max-w-md mx-auto pb-20">
@@ -55,11 +58,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
               onClick={() => navigate('/budgets')}
               className="flex flex-col items-center justify-center gap-1 data-[state=active]:bg-transparent data-[state=active]:text-royal-purple"
             >
-              <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <rect x="2" y="5" width="6" height="14" rx="1" />
-                <rect x="9" y="9" width="6" height="10" rx="1" />
-                <rect x="16" y="3" width="6" height="16" rx="1" />
-              </svg>
+              <ChartBar className="w-5 h-5" />
               <span className="text-xs">Budgets</span>
             </TabsTrigger>
             <TabsTrigger 
